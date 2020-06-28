@@ -1,0 +1,21 @@
+version: "3.2"
+services:
+  php:
+    build: './php/'
+    container_name: php3
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+  mysql:
+    build: './mysql/'
+    container_name: mysql3
+    networks:
+      - backend
+networks:
+  frontend:
+  backend:
+
